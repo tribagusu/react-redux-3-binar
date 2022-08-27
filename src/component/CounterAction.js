@@ -1,6 +1,7 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
 import TYPES from "../redux/types"
+import { setCounter } from "../redux/actions/counterAction"
 
 const CounterAction = () => {
   const dispatch = useDispatch()
