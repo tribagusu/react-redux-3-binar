@@ -1,29 +1,25 @@
 import React from "react"
 import { useDispatch } from "react-redux"
+import TYPES from "../redux/types"
 
 const CounterAction = () => {
   const dispatch = useDispatch()
 
-  //# actions
-  const INCREMENT = "INCREMENT"
-  const DECREMENT = "DECREMENT"
-  const RESET = "RESET"
-
   const handleIncrement = () => {
     dispatch({
-      type: INCREMENT,
+      type: TYPES.INCREMENT,
     })
   }
 
   const handleDecrement = () => {
     dispatch({
-      type: DECREMENT,
+      type: TYPES.DECREMENT,
     })
   }
 
   const handleReset = () => {
     dispatch({
-      type: RESET,
+      type: TYPES.RESET,
     })
   }
 
