@@ -1,14 +1,38 @@
-import React, { useState } from "react"
+import React from "react"
+import { useDispatch } from "react-redux"
 
 const CounterAction = () => {
-  const [count, setCount] = useState(0)
+  const dispatch = useDispatch()
+
+  //# actions
+  const INCREMENT = "INCREMENT"
+  const DECREMENT = "DECREMENT"
+  const RESET = "RESET"
+
+  const handleIncrement = () => {
+    dispatch({
+      type: INCREMENT,
+    })
+  }
+
+  const handleDecrement = () => {
+    dispatch({
+      type: DECREMENT,
+    })
+  }
+
+  const handleReset = () => {
+    dispatch({
+      type: RESET,
+    })
+  }
 
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>+</button>
-      <button onClick={() => setCount(count > 1 ? count - 1 : count)}>-</button>
+      <button onClick={handleIncrement}>+</button>
+      <button onClick={handleDecrement}>-</button>
       <div>
-        <button onClick={() => setCount(0)}>reset</button>
+        <button onClick={handleReset}>reset</button>
       </div>
     </div>
   )
