@@ -9,12 +9,12 @@ const counterReducer = (state = counterState, action) => {
     case TYPES.INCREMENT:
       return {
         ...state,
-        total: state.total + 1,
+        total: action.payload,
       }
     case TYPES.DECREMENT:
       return {
         ...state,
-        total: state.total > 0 ? state.total - 1 : state.total,
+        total: action.payload,
       }
     case TYPES.RESET:
       return {
