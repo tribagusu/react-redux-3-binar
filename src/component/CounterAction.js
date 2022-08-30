@@ -1,33 +1,25 @@
 import React from "react"
 import { useDispatch, useSelector } from "react-redux"
-import TYPES from "../redux/types"
-import { setCounter } from "../redux/actions/counterAction"
+import {
+  setIncrement,
+  setDecrement,
+  setReset,
+} from "../redux/actions/counterAction"
 
 const CounterAction = () => {
   const dispatch = useDispatch()
   const { counterReducer } = useSelector((state) => state)
 
   const handleIncrement = () => {
-    const result = counterReducer.total + 1
-    dispatch({
-      type: TYPES.INCREMENT,
-      payload: result,
-    })
+    dispatch(setIncrement(counterReducer))
   }
 
   const handleDecrement = () => {
-    const result =
-      counterReducer.total > 0 ? counterReducer.total - 1 : counterReducer.total
-    dispatch({
-      type: TYPES.DECREMENT,
-      payload: result,
-    })
+    dispatch(setDecrement(counterReducer))
   }
 
   const handleReset = () => {
-    dispatch({
-      type: TYPES.RESET,
-    })
+    dispatch(setReset(counterReducer))
   }
 
   return (

@@ -1,14 +1,24 @@
 import TYPES from "../types"
-import { useSelector } from "react-redux"
 
-export const setCounter = (result) => {
-  // const { counterReducer } = useSelector((state) => state)
+export const setIncrement = (counterReducer) => {
+  return {
+    type: TYPES.INCREMENT,
+    payload: counterReducer.total + 1,
+  }
+}
 
-  return (dispatch) => {
-    // const result = counterReducer.total + 1
-    dispatch({
-      type: TYPES.INCREMENT,
-      payload: result,
-    })
+export const setDecrement = (counterReducer) => {
+  return {
+    type: TYPES.DECREMENT,
+    payload:
+      counterReducer.total > 0
+        ? counterReducer.total - 1
+        : counterReducer.total,
+  }
+}
+
+export const setReset = (counterReducer) => {
+  return {
+    type: TYPES.RESET,
   }
 }
